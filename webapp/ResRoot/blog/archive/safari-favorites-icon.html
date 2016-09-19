@@ -1,0 +1,71 @@
+<p>
+蹲坑无聊时用Safari将自己的网站添加到了收藏夹里，但是发现保存后的图标似乎是一个默认的图标：
+</p>
+<figure class="figure">
+	<img src="/blog/archive/safari-favorites-icon/apple-touch-icon.1.png" class="figure-img img-fluid img-rounded">
+</figure>
+<p>
+看到“苹果中国”，“百度”，“网易邮箱”等都有自己个性化的图标，想必有某个设置Safari收藏夹图标的方法，于是果断搜了一下，发现解决方案也十分简单，大致有以下几种：
+</p>
+<ul>
+<li>
+<p>
+对所有网页指定一个统一的图标，具体的做法是将一个名为<code>apple-touch-icon.png</code>的PNG格式的图片放在根目录下，就像我们放置<code>favicon.icon</code>那样。
+</p>
+</li>
+<li>
+<p>
+对某个页面指定图标，具体的做法是在页面中插入如下代码：
+</p>
+<pre class="html">
+&lt;link rel="apple-touch-icon" href="/custom_icon.png"&gt;
+</pre>
+</li>
+<li>
+<p>
+特别的，我们还可以通过设置<code>sizes</code>属性，来为不同的设备指定不同的图标：
+</p>
+<pre class="html">
+&lt;link rel="apple-touch-icon" href="touch-icon-iphone.png"&gt;
+&lt;link rel="apple-touch-icon" sizes="76x76" href="touch-icon-ipad.png"&gt;
+&lt;link rel="apple-touch-icon" sizes="120x120" href="touch-icon-iphone-retina.png"&gt;
+&lt;link rel="apple-touch-icon" sizes="152x152" href="touch-icon-ipad-retina.png"&gt;
+</pre>
+<p>
+如果没有添加<code>sizes</code>属性，那么会默认属性值为<code>60x60</code>。设备会优先使用最“适合”的图标。
+</p>
+</li>
+</ul>
+<p>
+何为最“适合”呢？那就要考虑设备搜索图标的流程了：
+</p>
+<ul>
+<li>
+<p>
+如果页面以<code>link</code>的形式指定了<code>apple-touch-icon</code>，那么会首先看这些图标中是否有该设备推荐尺寸的图标。如果有，那么就是他了；如果没有，会找比推荐尺寸大的最小的图标。如果还没有，那么就会使用这些图标中最大的图标。注意这里衡量图标的尺寸都是以<code>sizes</code>属性的值来判断的，而不是以图标的实际大小来判断的。
+</p>
+</li>
+<li>
+<p>
+如果页面以没有以<code>link</code>的形式指定了<code>apple-touch-icon</code>，那么会在网站的根目录寻找以<code>apple-touch-icon</code>为前缀的图标。例如，我的iPhone 5S上的Safari就会按这样的顺序搜索图标：
+</p>
+	<ol>
+	<li>
+	<code>apple-touch-icon-120x120.png</code>，这是因为iPhone 5S上面Web clip icon的推荐尺寸是120x120的。其他设备上Web clip icon的推荐尺寸可以参阅iOS Developer Library的相关文档。
+	</li>
+	<li>
+	<code>apple-touch-icon.png</code>
+	</li>
+	</ol>
+</li>
+</ul>
+<p>
+以上内容的相关详情可以参阅iOS Developer Library的文档<a href="https://developer.apple.com/library/ios/documentation/AppleApplications/Reference/SafariWebContent/ConfiguringWebApplications/ConfiguringWebApplications.html" target="_blank">Configuring Web Applications</a>。
+</p>
+<p>
+最后展示一下在根目录添加了<code>apple-touch-icon.png</code>之后的效果：
+</p>
+<figure class="figure">
+	<img src="/blog/archive/safari-favorites-icon/apple-touch-icon.2.png" class="figure-img img-fluid img-rounded">
+</figure>
+<p><code>- EOF -</code><p>

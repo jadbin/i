@@ -1,0 +1,56 @@
+{{define "archive.html"}}
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="author" content="https://github.com/jadbin">
+	<meta name="description" content="{{.PageDescription}}">
+	<title>{{.PageTitle}}</title>
+	{{.CSS.bootstrap}}
+	{{.CSS.fontawesome}}
+	{{.CSS.highlightjs}}
+	<link href="/css/jadbin.com.css" rel="stylesheet">
+</head>
+<body>
+{{template "header.html"}}
+<div class="container">
+	<div class="row">
+		<main class="col-sm-12">
+			<article class="archive">
+				<header class="archive-header">
+					<h1 class="archive-title"><a href="/blog/archive/{{.ArchiveId}}">{{.ArchiveTitle}}</a></h1>
+					<div class="archive-meta-list">
+						{{if .ArchiveDate}}
+						<div class="archive-meta"><i class="fa fa-calendar"></i><span>{{.ArchiveDate}}</span></div>
+						{{end}}
+						{{if .ArchiveSeries}}
+						<div class="archive-meta"><i class="fa fa-th-list"></i><a href="/blog/series/{{.ArchiveSeries}}">{{.ArchiveSeries}}</a></div>
+						{{end}}
+					</div>
+				</header>
+				<div class="archive-content">
+					{{.ArchiveContent}}
+				</div>
+				<footer class="archive-footer">
+					<div class="archive-tag-list">
+						<i class="fa fa-tag"></i>
+						{{range $i, $tag := .ArchiveTags}}
+						<a class="archive-tag" href="/blog/tag/{{$tag}}">{{$tag}}</a>
+						{{end}}
+					</div>
+				</footer>
+			</article>
+		</main>
+	</div>
+</div>
+{{template "footer.html"}}
+{{.JS.jquery}}
+{{.JS.bootstrap}}
+{{.JS.mathjax}}
+{{.JS.highlightjs}}
+<script src="/js/jadbin.com.js"></script>
+</body>
+</html>
+{{end}}
