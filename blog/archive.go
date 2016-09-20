@@ -39,8 +39,8 @@ func (this *ArchiveB) Handle(w http.ResponseWriter, r *http.Request) {
 	}
 	meta := this.metaMap[id]
 	data := this.getArchiveData(meta)
-	data["PageTitle"] = fmt.Sprintf("%s - wangyb.net", meta.Title)
-	data["PageDescription"] = fmt.Sprintf("%s - wangyb.net", meta.Title)
+	data["PageTitle"] = fmt.Sprintf("%s - jadbin.com", meta.Title)
+	data["PageDescription"] = fmt.Sprintf("%s - jadbin.com", meta.Title)
 	data["JS"] = config.CDN_JS
 	data["CSS"] = config.CDN_CSS
 	if err := tpl.Execute(w, data); err != nil {

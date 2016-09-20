@@ -56,8 +56,8 @@ func (this *BlogB) Handle(w http.ResponseWriter, r *http.Request) {
 	data["PageCount"] = pageCount
 	data["PreviousPageHref"] = fmt.Sprintf("/blog/page/%d", pageId)
 	data["NextPageHref"] = fmt.Sprintf("/blog/page/%d", pageId+2)
-	data["PageTitle"] = "Blog - wangyb.net"
-	data["PageDescription"] = "Blog - wangyb.net"
+	data["PageTitle"] = "Blog - jadbin.com"
+	data["PageDescription"] = "Blog - jadbin.com"
 	data["JS"] = config.CDN_JS
 	data["CSS"] = config.CDN_CSS
 	if err := tpl.Execute(w, data); err != nil {

@@ -63,8 +63,8 @@ func (this *SeriesB) Handle(w http.ResponseWriter, r *http.Request) {
 	data["PageCount"] = pageCount
 	data["PreviousPageHref"] = fmt.Sprintf("/blog/series/%s/page/%d", seriesName, pageId)
 	data["NextPageHref"] = fmt.Sprintf("/blog/series/%s/page/%d", seriesName, pageId+2)
-	data["PageTitle"] = fmt.Sprintf("%s - wangyb.net", seriesName)
-	data["PageDescription"] = fmt.Sprintf("%s - wangyb.net", seriesName)
+	data["PageTitle"] = fmt.Sprintf("%s - jadbin.com", seriesName)
+	data["PageDescription"] = fmt.Sprintf("%s - jadbin.com", seriesName)
 	data["JS"] = config.CDN_JS
 	data["CSS"] = config.CDN_CSS
 	if err := tpl.Execute(w, data); err != nil {

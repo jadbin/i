@@ -63,8 +63,8 @@ func (this *TagB) Handle(w http.ResponseWriter, r *http.Request) {
 	data["PageCount"] = pageCount
 	data["PreviousPageHref"] = fmt.Sprintf("/blog/tag/%s/page/%d", tagName, pageId)
 	data["NextPageHref"] = fmt.Sprintf("/blog/tag/%s/page/%d", tagName, pageId+2)
-	data["PageTitle"] = fmt.Sprintf("%s - wangyb.net", tagName)
-	data["PageDescription"] = fmt.Sprintf("%s - wangyb.net", tagName)
+	data["PageTitle"] = fmt.Sprintf("%s - jadbin.com", tagName)
+	data["PageDescription"] = fmt.Sprintf("%s - jadbin.com", tagName)
 	data["JS"] = config.CDN_JS
 	data["CSS"] = config.CDN_CSS
 	if err := tpl.Execute(w, data); err != nil {

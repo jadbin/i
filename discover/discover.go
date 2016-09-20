@@ -31,8 +31,8 @@ func (this *DiscoverB) Handle(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	data := this.getArchiveListData()
-	data["PageTitle"] = "Discover - wangyb.net"
-	data["PageDescription"] = "Discover - wangyb.net"
+	data["PageTitle"] = "Discover - jadbin.com"
+	data["PageDescription"] = "Discover - jadbin.com"
 	data["JS"] = config.CDN_JS
 	data["CSS"] = config.CDN_CSS
 	if err := tpl.Execute(w, data); err != nil {
